@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt_br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Caixa Forte</title>
+    <link rel="stylesheet" href="./assets/css/caixaforte.css">
+</head>
+<body class="inria-sans-700">
+    <div class="dashboard">
+        <section class="card" id="entrada">
+            <div class="titulo">Assistente Pessoal de Controle Financeiro</div>
+            <form method="post">
+                <div class="form">
+                    <div class="flex">
+                        <label for="inputdescricao">Descrição</label>
+                        <input class="c10 form-input" type="text" name="descricao" id="inputdescricao" placeholder="Descrição">
+                    </div>
+                    <div class="flex">
+                        <label for="inputtipo">Tipo</label>
+                        <input type="text" name="tipo" id="inputtipo" class="c5 form-input">
+                        <label for="inputvalor">Valor</label>
+                        <input type="text" name="valor" id="inputvalor" class="c5 form-input">
+                    </div>
+                    <div class="flex">
+                        <label for="inputdata">Recebimento</label>
+                        <input type="date" name="tipo" id="inputdata" class="form-input">
+                        <label for="inputformadepagamento">Forma de Pagamento</label>
+                        <input type="text" name="formadepagamento" id="inputformadepagamento" class="c5 form-input">
+                    </div>
+                    <div class="flex">
+                        <label for="textareaobservacao">Observação</label>
+                        <textarea class="c10 form-textarea" name="textareaobservacao" id="textareaobservacao" cols="30" rows="5"></textarea>
+                    </div>
+                    <div class="center">
+                        <button class="btn btn-confirmar" type="submit">Salvar</button>
+                        <button class="btn btn-cancelar" type="submit">Cancelar</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <section class="card" id="resumo">
+            <div class="flex">
+                <label for="inputdespesas">Despesas</label>
+                <input type="text" name="despesas" id="inputdespesas" class="c3 form-input" disabled>
+                <label for="inputreceitas">Receitas</label>
+                <input type="text" name="receitas" id="inputreceitas" class="c3 form-input" disabled>
+                <label for="inputSaldo">Saldo</label>
+                <input type="text" name="Saldo" id="inputSaldo" class="c3 form-input" disabled>
+            </div>
+        </section>
+        <section class="card" id="detalhamento">
+            <div class="grid-2">
+                <div class="coluna">
+                    <div>
+                        Resumo de Receitas
+                    </div>
+                    <textarea class="resumo" name="resumoReceitas"></textarea>
+                </div>
+                <div class="coluna">
+                    <div>
+                        Resumo de Despesas
+                    </div>
+                    <textarea class="resumo" name="resumoDespesas"></textarea>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
