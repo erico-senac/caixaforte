@@ -181,3 +181,9 @@ input[disabled]{
     border-color: var(--preto);
     color: var(--preto);
 }
+
+button{
+    margin: 2px  ;
+    border: 0;
+    background: transparent;
+}
