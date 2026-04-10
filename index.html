@@ -19,7 +19,11 @@
                     </div>
                     <div class="flex">
                         <label for="inputtipo">Tipo</label>
-                        <input type="text" name="tipo" id="inputtipo" class="c5 form-input">
+                        <select name="tipo" id="inputtipo" class="c5 form-input">
+                            <option hidden selected disabled></option>
+                            <option value="despesa">Débito</option>
+                            <option value="credito">Crédito</option>
+                        </select>
                         <label for="inputvalor">Valor</label>
                         <input type="text" name="valor" id="inputvalor" class="c5 form-input">
                     </div>

@@ -1,8 +1,28 @@
-const salvarDados = (dados) => {
+const salvarDados = (dado, index) => {
+    if(index === null)
+        dados.push(dado);
+    else
+        dados[index] = dado;
+    
     localStorage.setItem('dados', JSON.stringify(dados));
 }
 
-const apagarRegistro = (dados, condicao) => {
-    novo = dados.filter(dado => dado.descricao !== condicao)
-    return novo;
+const apagarRegistro = (index) => {
+    dados.splice(index,1);
+}
+
+const localizarRegistro = () => {
+    return dado;
+}
+
+const editarRegistro = (index) => {
+    item = dados[index];
+
+    descricao.value = item.descricao;
+    tipo.value = item.tipo;
+    valor.value = item.valor;
+    data.value = item.data;
+    formaPagamento.value = item.formaPagamento;
+    observacao.value = item.observao;
+
 }

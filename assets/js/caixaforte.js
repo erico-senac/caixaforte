@@ -20,12 +20,24 @@ const inseriDetalhamento = (dados) => {
         let destino = document.querySelector(`#${(dado.tipo).toLowerCase()} ul`);
         let itemLista = document.createElement('li');
         let apagar = document.createElement('button');
+        let editar = document.createElement('button');
         apagar.innerHTML = '<i class="fa-solid fa-trash-can"></i>'
-        apagar.addEventListener('click', () => apagarRegistro);
+        apagar.addEventListener('click', () => {
+            apagarRegistro(dados.indexOf(dado));
+            salvarDados(dados);
+            inseriDetalhamento(dados);
+        });
+        editar.innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
+        editar.addEventListener('click', () => {
+            editarRegistro(dados.indexOf(dado));
+            salvarDados(dados);
+            inseriDetalhamento(dados);
+        })
         itemLista.innerText = `${dado.descricao} -> R$ ${dado.valor}`;
         itemLista.appendChild(apagar);
+        itemLista.appendChild(editar);
         destino.appendChild(itemLista);
-    })
+    });
 }
 
 btnSalvar.addEventListener('click', (e) => {
@@ -40,8 +52,7 @@ btnSalvar.addEventListener('click', (e) => {
         'observao' : observacao.value
     }
 
-    dados.push(dado);
-    salvarDados(dados);
+    salvarDados(dado, );
     inseriDetalhamento(dados);
 });
     
