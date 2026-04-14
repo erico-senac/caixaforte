@@ -1,11 +1,18 @@
+/**Botões */
 const btnSalvar = document.querySelector('#btnSalvar');
 const btnCancelar = document.querySelector('#btnCancelar');
+/**Dados do formulário */
+const index = document.querySelector('[name="index"]')
 const descricao = document.querySelector('[name="descricao"]')
 const tipo = document.querySelector('[name="tipo"]')
 const valor = document.querySelector('[name="valor"]')
 const data = document.querySelector('[name="data"]')
 const formaPagamento = document.querySelector('[name="formadepagamento"]')
 const observacao = document.querySelector('[name="textareaobservacao"]')
+/**Dados do Resumo */
+const totalReceitas = document.querySelector('[name="receitas"]');
+const totalDespesas = document.querySelector('[name="despesas"]');
+const saldo = document.querySelector('[name="saldo"]');
 
 let dados = localStorage.getItem('dados') !== null ? JSON.parse(localStorage.getItem('dados')) : [];
 
@@ -24,14 +31,11 @@ const inseriDetalhamento = (dados) => {
         apagar.innerHTML = '<i class="fa-solid fa-trash-can"></i>'
         apagar.addEventListener('click', () => {
             apagarRegistro(dados.indexOf(dado));
-            salvarDados(dados);
-            inseriDetalhamento(dados);
+            window.location.reload();
         });
         editar.innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
         editar.addEventListener('click', () => {
             editarRegistro(dados.indexOf(dado));
-            salvarDados(dados);
-            inseriDetalhamento(dados);
         })
         itemLista.innerText = `${dado.descricao} -> R$ ${dado.valor}`;
         itemLista.appendChild(apagar);
@@ -42,6 +46,7 @@ const inseriDetalhamento = (dados) => {
 
 btnSalvar.addEventListener('click', (e) => {
     e.preventDefault();
+    let i = index.value === '' ? null : parseInt(index.value);
     let dado = 
     {
         'descricao' : descricao.value,
@@ -52,8 +57,25 @@ btnSalvar.addEventListener('click', (e) => {
         'observao' : observacao.value
     }
 
-    salvarDados(dado, );
-    inseriDetalhamento(dados);
+    salvarDados(dado, i);
+    window.location.reload();
 });
-    
+
+const atualizaSaldos = (dados) => {
+    let tcred = 0.0;
+    let tdesp = 0.0;
+
+    dados.forEach( dados => {
+        if(dados.tipo === 'credito')
+            tcred += parseFloat(dados.valor);
+        else
+            tdesp += parseFloat(dados.valor);
+    })
+
+    totalReceitas.value = `R$ ${tcred}`;
+    totalDespesas.value = `R$ ${tdesp}`;
+    saldo.value = `R$ ${tcred-tdesp}`;
+}
+
 inseriDetalhamento(dados);
+atualizaSaldos(dados);

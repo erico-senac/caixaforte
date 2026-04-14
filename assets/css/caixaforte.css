@@ -116,6 +116,11 @@ body{
     resize: none;
 }
 
+.tad{
+    text-align: right;
+    padding-right: 7px;
+}
+
 .c3{
     width: calc((100% / 12)*3);
 }
@@ -143,6 +148,7 @@ body{
 .grid-2{
     display: grid;
     grid-template-columns: repeat(2, auto);
+    justify-content: space-between;
 }
 
 .coluna{
@@ -154,7 +160,7 @@ body{
 }
 .resumo{
     text-align: justify ;
-    width: 390px;
+    width: 420px;
     border-radius: 7px;
     height: 190px;
     padding: 7px;

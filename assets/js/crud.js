@@ -1,4 +1,4 @@
-const salvarDados = (dado, index) => {
+const salvarDados = (dado, index = null) => {
     if(index === null)
         dados.push(dado);
     else
@@ -9,15 +9,17 @@ const salvarDados = (dado, index) => {
 
 const apagarRegistro = (index) => {
     dados.splice(index,1);
+    localStorage.setItem('dados', JSON.stringify(dados));
 }
 
 const localizarRegistro = () => {
     return dado;
 }
 
-const editarRegistro = (index) => {
-    item = dados[index];
+const editarRegistro = (i) => {
+    item = dados[i];
 
+    index.value = i;
     descricao.value = item.descricao;
     tipo.value = item.tipo;
     valor.value = item.valor;
