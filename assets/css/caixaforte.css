@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.4/css/bulma.min.css";
 
 *{
     margin: 0;
@@ -52,6 +53,7 @@
     --vermelho: hsl(0, 73%, 71%);
     --roxo: hsl(260, 83%, 21%);
     --preto: hsl(0, 0%, 0%);
+    --azeitona: oklch(46.6% 0.025 107.3 / 50%);
 }
 
 body{
@@ -80,6 +82,9 @@ body{
     border-radius: 7px;
 }
 
+.is-erro{
+    background-color: var(--vermelho);
+}
 .titulo{
     text-align: center;
     width: 100%;
