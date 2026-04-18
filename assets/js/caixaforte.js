@@ -9,10 +9,12 @@ const valor = document.querySelector('[name="valor"]')
 const data = document.querySelector('[name="data"]')
 const formaPagamento = document.querySelector('[name="formadepagamento"]')
 const observacao = document.querySelector('[name="textareaobservacao"]')
+const lbl_inputData = document.querySelector('#lbl_inputData');
 /**Dados do Resumo */
 const totalReceitas = document.querySelector('[name="receitas"]');
 const totalDespesas = document.querySelector('[name="despesas"]');
 const saldo = document.querySelector('[name="saldo"]');
+/**Documento completo */
 
 let dados = localStorage.getItem('dados') !== null ? JSON.parse(localStorage.getItem('dados')) : [];
 
@@ -38,6 +40,11 @@ const inseriDetalhamento = (dados) => {
         editar.innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
         editar.addEventListener('click', () => {
             editarRegistro(dados.indexOf(dado));
+            if(dado.tipo === 'despesa'){
+                lbl_inputData.innerHTML = 'Pagamento';
+            } else {
+                lbl_inputData.innerHTML = 'Recebimento';
+            }
         })
         itemLista.innerText = `${dado.descricao} -> R$ ${dado.valor}`;
         itemLista.appendChild(apagar);
@@ -102,7 +109,36 @@ const atualizaSaldos = (dados) => {
     totalReceitas.value = `R$ ${tcred}`;
     totalDespesas.value = `R$ ${tdesp}`;
     saldo.value = `R$ ${tcred-tdesp}`;
+    if(tcred-tdesp < 0){
+        saldo.classList.add('bg-danger')
+        saldo.classList.remove('bg-success')
+    } else {
+        saldo.classList.add('bg-success')
+        saldo.classList.remove('bg-danger')
+    }
+    if(tcred-tdesp == 0){
+        saldo.classList.remove('bg-success')
+        saldo.classList.remove('bg-danger')
+    }
 }
+
+document.addEventListener('keydown', (key) => {
+    // console.log(key.code)
+    if(key.code === 'F8'){
+        btnSalvar.click()
+    }
+    if(key.code.toLowerCase() === 'escape'){
+        btnCancelar.click()
+    }
+})
+
+tipo.addEventListener('change', (e) => {
+    if(e.target.value === 'despesa'){
+        lbl_inputData.innerHTML = 'Pagamento';
+    } else {
+        lbl_inputData.innerHTML = 'Recebimento';
+    }
+})
 
 inseriDetalhamento(dados);
 atualizaSaldos(dados);

@@ -13,54 +13,62 @@
         <section class="card" id="entrada">
             <div class="titulo">Assistente Pessoal de Controle Financeiro</div>
             <form>
-                <div class="form">
+                <div class="grid-5 pt-2 d-grid gap-2">
                     <input type="number" name="index" hidden>
-                    <div class="flex">
+                    <div class="d-flex justify-content-between">
                         <label for="inputdescricao">Descrição</label>
-                        <input class="c10 form-input is-focused" type="text" name="descricao" id="inputdescricao" required>
+                        <input class="c10 form-control is-focused" type="text" name="descricao" id="inputdescricao" required>
                     </div>
-                    <div class="flex">
+                    <div class="d-flex justify-content-between">
                         <label for="inputtipo">Tipo</label>
-                        <select name="tipo" id="inputtipo" class="c5 form-input" required>
+                        <select name="tipo" id="inputtipo" class="c5 form-control" required>
                             <option hidden selected disabled></option>
                             <option value="despesa">Débito</option>
                             <option value="credito">Crédito</option>
                         </select>
                         <label for="inputvalor">Valor</label>
-                        <input type="number" step="0.01" name="valor" id="inputvalor" class="c5 form-input" required>
+                        <input type="number" step="0.01" name="valor" id="inputvalor" class="c5 form-control" required>
                     </div>
-                    <div class="flex">
-                        <label for="inputdata">Recebimento</label>
-                        <input type="date" name="data" id="inputdata" class="form-input" required>
+                    <div class="d-flex justify-content-between">
+                        <label for="inputdata" id="lbl_inputData">Recebimento</label>
+                        <div class="col-sm-2">
+                            <input type="date" name="data" id="inputdata" class="form-control" required>
+                        </div>
                         <label for="inputformadepagamento">Forma de Pagamento</label>
-                        <select name="formadepagamento" id="inputformadepagamento" class="c5 form-input" required>
-                            <option hidden disabled selected></option>
-                            <option value="pix">PIX</option>
-                            <option value="credito">Crédito em Conta</option>
-                            <option value="debito">Débito em Conta</option>
-                            <option value="dinheiro">Em Espécie</option>
-                            <option value="transferencia">Transferência</option>
-                        </select> 
+                        <div class="col-sm-5">
+                            <select name="formadepagamento" id="inputformadepagamento" class=" form-control" required>
+                                <option hidden disabled selected></option>
+                                <option value="pix">PIX</option>
+                                <option value="credito">Crédito em Conta</option>
+                                <option value="debito">Débito em Conta</option>
+                                <option value="dinheiro">Em Espécie</option>
+                                <option value="transferencia">Transferência</option>
+                            </select> 
+                        </div>
                     </div>
-                    <div class="flex">
+                    <div class="d-flex justify-content-between">
                         <label for="textareaobservacao">Observação</label>
-                        <textarea class="c10 form-textarea" name="textareaobservacao" id="textareaobservacao" cols="30" rows="5" ></textarea>
+                        <textarea class="form-control" name="textareaobservacao" id="textareaobservacao" cols="30" rows="5" ></textarea>
                     </div>
-                    <div class="center">
-                        <button class="button is-success" id="btnSalvar" type="submit">Salvar</button>
-                        <button class="button is-danger" id="btnCancelar" type="reset">Cancelar</button>
+                    <div class="d-flex gap-2 mx-auto">
+                        <div class="col-12">
+                            <button class="btn btn-success" id="btnSalvar" type="submit">Salvar (F8)</button>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-danger" id="btnCancelar" type="reset">Cancelar (Esc)</button>
+                        </div>
                     </div>
                 </div>
             </form>
         </section>
         <section class="card" id="resumo">
-            <div class="flex">
+            <div class="d-flex justify-content-between">
                 <label for="inputdespesas">Despesas</label>
-                <input type="text" step="0.01" name="despesas" id="inputdespesas" class="tad c3 form-input" disabled>
+                <input type="text" step="0.01" name="despesas" id="inputdespesas" class="tad c3 form-control" disabled>
                 <label for="inputreceitas">Receitas</label>
-                <input type="text" step="0.01" name="receitas" id="inputreceitas" class="tad c3 form-input" disabled>
+                <input type="text" step="0.01" name="receitas" id="inputreceitas" class="tad c3 form-control" disabled>
                 <label for="inputSaldo">Saldo</label>
-                <input type="text" step="0.01" name="saldo" id="inputSaldo" class="tad c3 form-input" disabled>
+                <input type="text" step="0.01" name="saldo" id="inputSaldo" class="tad c3 form-control bg-gradient" disabled>
             </div>
         </section>
         <section class="card" id="detalhamento">
