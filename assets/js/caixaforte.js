@@ -14,14 +14,25 @@ const lbl_inputData = document.querySelector('#lbl_inputData');
 const totalReceitas = document.querySelector('[name="receitas"]');
 const totalDespesas = document.querySelector('[name="despesas"]');
 const saldo = document.querySelector('[name="saldo"]');
-/**Documento completo */
+/**Janela de confirmação */
+const confirmacao = document.querySelector(".confirmacao");
+const btnConfirmaExclusao = document.querySelector("#btnConfExclusao");
+const btnCancelaExclusao = document.querySelector("#btnCancelExclusao");
 
+let resultConfirma;
 let dados = localStorage.getItem('dados') !== null ? JSON.parse(localStorage.getItem('dados')) : [];
 
 const limpaDestino = () => {
     document.querySelector('#despesa ul').innerHTML = '';
     document.querySelector('#credito ul').innerHTML = '';
 }
+
+btnConfirmaExclusao.addEventListener('click', (e) => {
+    e.preventDefault();
+    resultConfirma = true;
+})
+
+btnCancelaExclusao.addEventListener('click', () => window.location.reload() );
 
 const inseriDetalhamento = (dados) => {
     limpaDestino();
@@ -32,10 +43,7 @@ const inseriDetalhamento = (dados) => {
         let editar = document.createElement('button');
         apagar.innerHTML = '<i class="fa-solid fa-trash-can"></i>'
         apagar.addEventListener('click', () => {
-            if(confirm('Deseja realmente apagar a entrada? ')){
-                apagarRegistro(dados.indexOf(dado));
-                window.location.reload();
-            }
+            apagarRegistro(dados.indexOf(dado));
         });
         editar.innerHTML = '<i class="fa-regular fa-pen-to-square"></i>';
         editar.addEventListener('click', () => {

@@ -8,8 +8,11 @@ const salvarDados = (dado, index = null) => {
 }
 
 const apagarRegistro = (index) => {
-    dados.splice(index,1);
-    localStorage.setItem('dados', JSON.stringify(dados));
+    confirmacao.classList.toggle('hide')
+    if(resultConfirma === true){
+        dados.splice(index,1);
+        localStorage.setItem('dados', JSON.stringify(dados));
+    }
 }
 
 const localizarRegistro = () => {

@@ -65,7 +65,23 @@ body{
     background-color: var(--preto);
 
 }
+.hide{
+    display: none;
+}
 
+.confirmacao__titulo{
+    background-color: var(--azeitona);
+}
+
+.confirmacao{
+    border-style: solid;
+    border-radius: 15px;
+    position: absolute;
+    left: calc((100vw/2) - 12rem);
+    width: 25rem;
+    height: 8rem;
+    background-color: var(--branco);
+}
 .dashboard{
     background-color: var(--cinza);
     margin: auto;

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca CEPs</title>
+    <link rel="stylesheet" href="assets/css/caixaforte.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="card">
+            <form id="formulario-contato" method="get" action="#">
+                <label>Cep:
+                    <input class="form-control" name="cep" type="text" id="cep" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);"/>
+                </label><br/>
+                <label>Rua:
+                    <input name="rua" type="text" class="form-control" id="rua" size="60"/>
+                </label><br/>
+                <label>Complemento:
+                    <input name="complemento" type="text" id="complemento" class="form-control" size="60"/>
+                </label><br/>
+                <label>Bairro:
+                    <input name="bairro" type="text" id="bairro" class="form-control" size="40"/>
+                </label><br/>
+                <label>Cidade:
+                    <input class="form-control" name="cidade" type="text" id="cidade" size="40"/>
+                </label><br/>
+                <label>Estado:
+                    <input name="uf" type="text" class="form-control" id="uf" size="2"/>
+                </label><br/>
+                <label>IBGE:
+                    <input class="form-control" name="ibge" type="text" id="ibge" size="8"/>
+                </label><br/>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="./assets/js/buscacep.js"></script>
+</html>
